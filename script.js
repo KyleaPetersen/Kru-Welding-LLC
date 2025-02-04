@@ -30,3 +30,32 @@ window.onload = function () {
       );
     });
 };  
+
+
+// Image slideshow
+const slideshow = document.querySelector(".slideshow");
+const slides = document.querySelectorAll(".slide");
+const totalSlides = slides.length;
+let index = 0;
+const slidesToShow = 3;
+
+/* Moves the slides left or right */
+function moveSlide(direction) {
+    index += direction;
+
+    // Loop slides (infinite effect)
+    if (index > totalSlides - slidesToShow) {
+        index = 0;
+    } else if (index < 0) {
+        index = totalSlides - slidesToShow;
+    }
+
+    // Move slides
+    const offset = -(index * (100 / slidesToShow));
+    slideshow.style.transform = `translateX(${offset}%)`;
+}
+
+/* Auto slide every 3 seconds */
+setInterval(() => {
+    moveSlide(1);
+}, 6000);
