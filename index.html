@@ -43,19 +43,19 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Quality Custom Welding<br>in the Twin Cities</h2>
+            <h2>Quality Custom Welding<br>Twin Cities, Minnesota</h2>
             <p></p>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <h2>Welding Services</h2>
+        <h1>Welding Services</h1>
         <div class="service-boxes">
             <div class="service">
                 <div class="service-description">
                     <h3>Mobile Welding</h3>
-                    <p>With mobile welding we can bring the shop to you for projects that are to large to transport or to save you time.</p>
+                    <p>With mobile welding we can bring the shop to you for projects that are too large to transport or to save you time.</p>
                 </div>
             </div>
             <div class="service">
@@ -90,6 +90,7 @@
             </div>
         </div>
 
+        <!--Slideshow will be visible to larger screens-->
         <div class="slideshow-container">
             <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
 
@@ -133,6 +134,47 @@
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
 
+        <!-- Button for a pop up photo gallery. On smaller screens this will be visible instead of the slideshow above-->
+        <button id="openGalleryBtn">Open Photo Gallery</button>
+
+        <!-- Photo Gallery Popup -->
+        <div id="galleryPopup" class="popup">
+            <div class="popup-content">
+                <span id="closeBtn" class="close-btn">&times;</span>
+                <div class="gallery">
+                    <!-- Photo with Caption -->
+                    <div class="photo-container active">
+                        <img class="service-photo" src="assets/mobile_welding_truck.jpeg" alt="Mobile welding truck for work anywhere in the twin cities">
+                        <div class="caption">Mobile welding rig for work anywhere in the twin cities.</div>
+                    </div>
+                    <div class="photo-container">
+                        <img class="service-photo" src="assets/railing.jpg" alt="Presicely welded handrails for outdoor staircase ">
+                        <div class="caption">Welded handrails for outdoor staircase</div>
+                    </div>
+                    <div class="photo-container">
+                        <img class="service-photo" src="assets/leaf_handrail.jpg" alt="Ornate decorative leaf handrail">
+                        <div class="caption">Handcrafted custom designs</div>
+                    </div>
+                    <div class="photo-container">
+                        <img class="service-photo" src="assets/gate.jpg" alt="Beautifully welded driveway gate">
+                        <div class="caption">Heavy duty metalwork for industrial sites</div>
+                    </div>
+                    <div class="photo-container">
+                        <img class="service-photo" src="assets/gutter.jpg" alt="Decorative metal roof downspout">
+                        <div class="caption">Decorative yet functional metalwork, if you can draw it we can make it</div>
+                    </div>
+                    <div class="photo-container">
+                        <img class="service-photo" src="assets/decor.jpg" alt="Rustic metal decorative pannels sitting along a garage">
+                        <div class="caption">Rustic decorative pannels drawn by customer, designed by Kru Welding</div>
+                    </div>
+                    <div class="photo-container">
+                        <img class="service-photo" src="assets/trailor.jpg" alt="Custom made flat-bed trailer, all metal pieces welded with precision">
+                        <div class="caption">Custom-Made Metal Fence</div>
+                    </div>
+                </div>
+                <button id="prevBtn" class="nav-btn">&larr;</button>
+                <button id="nextBtn" class="nav-btn">&rarr;</button>
+            </div>
     </section>
 
     <!-- About Section-->

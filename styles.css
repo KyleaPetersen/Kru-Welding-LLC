@@ -114,9 +114,10 @@ nav ul li a {
     align-items: center;
 }
 
-.hero h2 {
+.hero h1 {
     font-size: 2.5em;
     opacity: 100%;
+    margin-top: 2em;
     
 }
 
@@ -126,7 +127,7 @@ nav ul li a {
 }
 
 
-/* Services Section */
+/********* Services Section */
 .services {
     background: rgb(241, 241, 241, .95);
     text-align: center;
@@ -192,75 +193,218 @@ nav ul li a {
     }
 }
 
-    /* Styling for the slideshow */
+/***************** Styling for the slideshow *********************************/
+
 .slideshow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 90%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
+    display: none;
 }
 
-.slideshow-wrapper {
-    width: 80%;
-    overflow: hidden;
+.prev {
+    display: none;
 }
 
-.slideshow {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    gap: 10px;
+.next {
+    display: none;
 }
 
-.slide {
-    flex: 0 0 calc(100% / 3); /* Show 3 slides at a time */
-    text-align: center;
-    position: relative;
+@media (min-width: 769px) {
+
+    .slideshow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: 90%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .slideshow-wrapper {
+        width: 80%;
+        overflow: hidden;
+    }
+
+    .slideshow {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        gap: 10px;
+    }
+
+    .slide {
+        flex: 0 0 calc(100% / 3); /* Show 3 slides at a time */
+        text-align: center;
+        position: relative;
+    }
+
+    .slide img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .caption {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+        /* Navigation buttons */
+    .prev, .next {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .prev { 
+        display:flex; 
+        left: 10px; 
+    }
+
+    .next { 
+        display: flex;
+        right: 10px; }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 }
 
-.slide img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+
+/* ******* Gallery Popup ****************************************************/
+
+/* Basic styling for the button */
+#openGalleryBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #dddddd;
+    width:60%;
+    align-self: center;
 }
 
-.caption {
-    position: absolute;
-    bottom: 10px;
+#openGalleryBtn:hover {
+    background-color: #adadad;
+}
+
+/* Popup styling */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 5px;
-    font-size: 14px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-    /* Navigation buttons */
-.prev, .next {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
+.popup-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    font-size: 24px;
     cursor: pointer;
-    padding: 10px;
-    font-size: 20px;
+    color: #000;
+    z-index: 10000;
+}
+
+/* Gallery styling */
+.gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.3s ease; /* Smooth transition for sliding */
+    gap: 10px; /* Add a 10px gap between photos */
+}
+
+/* Photo container styling */
+.photo-container {
+    flex: 0 0 100%; 
+    position: relative;
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box; /* Ensure padding and borders are included in the element's total width */
+}
+
+.photo-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Caption styling */
+.photo-container .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Navigation buttons styling */
+.nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.prev:hover, .next:hover {
+.nav-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+#prevBtn {
+    left: 10px;
+}
 
-/* About Section */
+#nextBtn {
+    right: 10px;
+}
+
+
+/**************** About Section ***************************************/
+
 .about {
     background-color: rgba(201, 201, 201, .97);
     color: black;
