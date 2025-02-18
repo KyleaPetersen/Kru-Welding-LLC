@@ -319,7 +319,6 @@ nav ul li a {
     padding: 20px;
     border-radius: 10px;
     max-width: 90%;
-    max-height: 90%;
     overflow: hidden;
     text-align: center;
 }
@@ -339,7 +338,9 @@ nav ul li a {
 .gallery {
     position: relative;
     width: 100%;
+    max-width: 1100px;
     height: 100%;
+    max-height: 790px;
     display: flex;
     transition: transform 0.3s ease; /* Smooth transition for sliding */
     gap: 10px; /* Add a 10px gap between photos */
@@ -357,7 +358,7 @@ nav ul li a {
 }
 
 .photo-container img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
 }
@@ -365,7 +366,7 @@ nav ul li a {
 /* Caption styling */
 .photo-container .caption {
     position: absolute;
-    bottom: 0;
+    bottom: 2em;
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
