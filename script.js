@@ -4,7 +4,7 @@ const msg = document.querySelector(".form-message");
 
 (function () {
   // https://dashboard.emailjs.com/admin/account
-  emailjs.init("Wxx65Zq_967hRzDkI");
+  emailjs.init("sX6NxcXgIWBAOd0Ub");
 })();
 
 window.onload = function () {
