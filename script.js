@@ -14,7 +14,7 @@ window.onload = function () {
       event.preventDefault();
       document.querySelector(".loader").classList.add("show");
       // these IDs from the previous steps
-      emailjs.sendForm("service_v5rq58o", "template_dts15m7", this).then(
+      emailjs.sendForm("service_19gf4c4", "template_dts15m7", this).then(
         function() {
             document.getElementById("contact-form").reset();
             document.querySelector(".loader").classList.remove("show");
